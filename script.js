@@ -58,6 +58,24 @@ workEls.forEach((workEl) => {
   observer.observe(workEl);
 });
 
+// Timeline / Work Experience reveal on scroll
+const expCards = document.querySelectorAll(".experience .exp-card");
+expCards.forEach((card) => card.classList.add("transform"));
+
+let expObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.remove("transform");
+      entry.target.classList.add("visible");
+    }
+  });
+}, { threshold: 0.2 });
+
+expCards.forEach((card, i) => {
+  card.style.transitionDelay = `${i * 120}ms`;
+  expObserver.observe(card);
+});
+
 // Toggle theme and store user preferred theme for future
 
 const switchThemeEl = document.querySelector('input[type="checkbox"]');

@@ -355,6 +355,140 @@ body.light .link::after {
 }
 
 /* --------------------------------- */
+/* ----- Timeline / Work Experience -----*/
+/* --------------------------------- */
+
+.experience {
+  padding-block: var(--gutter-large);
+}
+
+.experiences {
+  position: relative;
+  padding-left: 3.5rem;
+  list-style: none;
+}
+
+.experiences::before {
+  content: "";
+  position: absolute;
+  /* moved the vertical line more to the right to avoid date overflow */
+  left: 2.5rem;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  width: 3px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  border-radius: 2px;
+}
+
+.experience-item {
+  position: relative;
+  margin-block-end: 4.5rem;
+  padding-bottom: 1.2rem;
+}
+
+.experience-item::before {
+  content: "";
+  position: absolute;
+  left: 2rem;
+  top: 0.8rem;
+  width: 14px;
+  height: 14px;
+  background: var(--important);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(255,255,255,0.02);
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.exp-card {
+  background: var(--bg-color-secondary);
+  border-radius: 14px;
+  padding: 1.5rem;
+  /* leave more space on the left for the vertical line and dates */
+  margin-left: 4.75rem;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  transition: transform 700ms var(--easing), opacity 700ms var(--easing);
+}
+
+.exp-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Date placements */
+.exp-date {
+  position: absolute;
+  left: -7rem;
+  width: 6.5rem;
+  text-align: right;
+  color: var(--sub);
+  font-weight: 700;
+  font-size: 0.95rem;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.exp-date.exp-end {
+  top: 0.5rem; /* end date sits near the top of the card */
+}
+
+.exp-date.exp-start {
+  bottom: 2.5rem; /* start date sits slightly below the bottom of the card to avoid overlap */
+}
+
+@media (min-width: 900px) {
+  .exp-date {
+    color: var(--important);
+    background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
+    padding-right: 0.5rem;
+    border-radius: 4px;
+  }
+}
+
+@media (max-width: 700px) {
+  .experiences::before { left: 1.25rem; }
+  .experience-item::before { left: 1rem; }
+  .exp-card { margin-left: 1.8rem; padding-bottom: 0.5rem; }
+  .exp-date { position: static; text-align: left; margin-bottom: 0.5rem; width: auto; font-size: 0.9rem; }
+}
+
+.job-title {
+  color: var(--important);
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.location {
+  color: var(--sub);
+  font-size: var(--text-small);
+}
+
+.experience .transform {
+  transform: translateX(-2.5rem) translateY(0.5rem);
+  opacity: 0;
+}
+
+.exp-card.visible {
+  transform: none;
+  opacity: 1;
+}
+
+@media (max-width: 700px) {
+  .exp-date { position: static; text-align: left; margin-bottom: 0.5rem; width: auto; font-size: 0.9rem; }
+  .exp-card { margin-left: 1.8rem; }
+}
+@media (max-width: 700px) {
+  .experiences {
+    padding-left: 0;
+  }
+  .experiences::before { left: 0.75rem; }
+  .exp-card { margin-left: 1.8rem; }
+}
+
+/* --------------------------------- */
 /* ----- Layout -----*/
 /* --------------------------------- */
 
