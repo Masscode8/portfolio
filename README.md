@@ -77,4 +77,4 @@ Watch [this youtube video](https://www.youtube.com/watch?v=oEyXLYW3RjY) to learn
 
 [![Deploy your version of the Portfolio template using Netlify](assets/images/thumbnail.png)](https://www.youtube.com/watch?v=oEyXLYW3RjY "Deploy your version of the Portfolio template using Netlify")
 
-### Contributions are warmly welcomed ❤️.
+
