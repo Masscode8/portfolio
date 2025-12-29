@@ -894,7 +894,8 @@ body.dark .work-links img {
 .article-boxes {
   display: flex;
   flex-flow: row wrap;
-  gap: 3.5%;
+  /* vertical gap légèrement augmenté, horizontal conserve 3.5% */
+  gap: calc(var(--gutter-medium) + 1rem) 3.5%;
   margin-block-start: var(--gutter-x-large);
 }
 
@@ -935,7 +936,8 @@ body.dark .work-links img {
     max-inline-size: 685px;
     margin-inline: auto;
     justify-content: center;
-    gap: 4%;
+    /* vertical gap légèrement augmenté pour tailles moyennes */
+    gap: calc(var(--gutter-medium) + 0.75rem) 4%;
   }
 
   .article-box:nth-of-type(2),
@@ -960,7 +962,7 @@ body.dark .work-links img {
   }
 
   .article-box:not(:last-child) {
-    margin-block-end: var(--gutter-x-small);
+    margin-block-end: var(--gutter-medium);
   }
 
   .article-box:last-child {
