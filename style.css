@@ -1125,6 +1125,41 @@ body.dark .work-links img {
   }
 }
 
+/* Grouped skills categories */
+.skills-category {
+  margin-block-end: var(--gutter-large);
+}
+
+.skills-title {
+  font-size: 1.1rem;
+  text-align: center;
+  color: var(--important);
+  margin-block-end: 0.8rem;
+  font-weight: 700;
+}
+
+.skills-row {
+  display: flex;
+  gap: var(--gutter-large);
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 1000px) {
+  .skills-imgs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--gutter-x-large);
+    align-items: start;
+  }
+  .skills-category { margin-block-end: 0; }
+}
+
+@media (max-width: 675px) {
+  .skills-row { gap: var(--gutter-medium); }
+}
+
 /* --------------------------------- */
 /* ----- Contact -----*/
 /* --------------------------------- */
@@ -1313,6 +1348,61 @@ body.light .signatures {
   opacity: 0.875;
   transition: 225ms ease-in opacity;
 }
+
+.footer-link { position: relative; }
+
+/* Phone popup */
+.phone-popup {
+  position: absolute;
+  bottom: 140%;
+  left: 50%;
+  transform: translateX(-50%) scale(0.95);
+  min-width: 200px;
+  max-width: 260px;
+  padding: 0.6rem 0.75rem;
+  background: var(--bg-color-secondary);
+  color: var(--important);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 160ms var(--easing), transform 160ms var(--easing);
+  z-index: 50;
+  font-size: 0.95rem;
+}
+
+.phone-popup.open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) scale(1);
+}
+
+.phone-popup::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 8px solid var(--bg-color-secondary);
+  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.06));
+}
+
+.phone-popup .phone-number {
+  display: inline-block;
+  color: var(--important);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+@media (max-width: 600px) {
+  .phone-popup { left: auto; right: 0; transform: none; bottom: 120%; min-width: 160px; }
+  .phone-popup::after { left: 14px; transform: none; }
+} 
 
 .footer-link a:hover {
   opacity: 1;

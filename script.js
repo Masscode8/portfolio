@@ -130,3 +130,46 @@ logosWrappers.forEach(async (logoWrapper, i) => {
 });
 
 yearEl.textContent = new Date().getFullYear();
+
+// Phone popup toggle
+const phoneToggle = document.getElementById("phone-toggle");
+const phonePopup = document.getElementById("phone-popup");
+
+if (phoneToggle && phonePopup) {
+  const phoneLink = phonePopup.querySelector(".phone-number");
+
+  const openPopup = () => {
+    phonePopup.classList.add("open");
+    phonePopup.setAttribute("aria-hidden", "false");
+    phoneToggle.setAttribute("aria-expanded", "true");
+    if (phoneLink) phoneLink.focus();
+  };
+
+  const closePopup = () => {
+    phonePopup.classList.remove("open");
+    phonePopup.setAttribute("aria-hidden", "true");
+    phoneToggle.setAttribute("aria-expanded", "false");
+  };
+
+  phoneToggle.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (phonePopup.classList.contains("open")) closePopup();
+    else openPopup();
+  });
+
+  // Close on outside click
+  document.addEventListener("click", (e) => {
+    if (!phonePopup.contains(e.target) && !phoneToggle.contains(e.target)) {
+      closePopup();
+    }
+  });
+
+  // Close on Escape
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closePopup();
+  });
+
+  // Stop clicks inside popup from closing
+  phonePopup.addEventListener("click", (e) => e.stopPropagation());
+}
