@@ -418,7 +418,7 @@ body.light .link::after {
   justify-content: center;
   align-items: flex-start;  /* évite qu’elle soit trop haute */
   margin-left: auto;
-  margin-top: 1rem;         /* descend légèrement la photo */
+  margin-top: 5rem;         /* descend légèrement la photo */
 }
 
 .header-photo img {
