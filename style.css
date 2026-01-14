@@ -400,6 +400,56 @@ body.light .link::after {
   z-index: 2;
 }
 
+/* Header photo on the right */
+.header-inner {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start; /* fait descendre la photo par rapport au texte */
+}
+
+.header-textbox {
+  flex: 1 1 60%;
+  min-width: 0;
+}
+
+.header-photo {
+  flex: 0 0 320px;          /* plus d’espace pour la photo */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;  /* évite qu’elle soit trop haute */
+  margin-left: auto;
+  margin-top: 1rem;         /* descend légèrement la photo */
+}
+
+.header-photo img {
+  width: 500px;              /* photo plus grande */
+  height: 500px;
+  object-fit: cover;
+  border-radius: 0;          /* tu peux mettre 50% si tu veux un cercle */
+  border: none;              /* enlève le contour */
+  box-shadow: none;          /* enlève l’ombre */
+}
+
+@media (max-width: 900px) {
+  .header-inner {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;      /* centre sur mobile */
+  }
+
+  .header-photo {
+    flex: 0 0 auto;
+    margin-left: 0;
+    margin-top: 1rem;
+  }
+
+  .header-photo img {
+    width: 200px;             /* taille réduite sur mobile */
+    height: 200px;
+  }
+}
+
+
 .exp-card {
   background: var(--bg-color-secondary);
   border-radius: 14px;
@@ -1091,7 +1141,7 @@ body.dark .work-links img {
 
 .skills-img {
   block-size: 135px;
-  inline-size: 135px;
+  inline-size: 75px;
 }
 
 @media (max-width: 1100px) {
@@ -1249,7 +1299,38 @@ body.light .signatures {
   background-color: var(--bg-color-secondary);
   border-top-right-radius: var(--gutter-nano);
   border-bottom-right-radius: var(--gutter-nano);
+  padding: var(--gutter-large);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem; /* plus d'espace entre les lignes */
+  min-height: 100%; /* remplit toute la hauteur */
 }
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* espace icône / texte */
+}
+
+.contact-item .icon {
+  font-size: 1.5rem; /* icône plus grande */
+}
+
+.contact-item a {
+  font-size: 1.2rem; /* texte plus grand pour cliquer facilement */
+  color: var(--sub);
+  text-decoration: none;
+  background-color: rgba(255,255,255,0.05);
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--gutter-nano);
+  transition: background 0.2s;
+}
+
+.contact-item a:hover {
+  background-color: rgba(255,255,255,0.15);
+}
+
 
 .form-field label,
 .form-field input,
@@ -1292,6 +1373,27 @@ body.light .signatures {
 
 .contact-form button[type="submit"] {
   border: none;
+}
+
+.thank-text {
+  font-size: 3rem;              /* plus gros */
+  font-weight: 800;             /* bien gras */
+  text-align: center;           /* centré horizontalement */
+  color: var(--important);      /* couleur principale */
+  margin-top: 2rem;             /* espace au-dessus */
+  font-family: 'Montserrat', 'Helvetica Neue', sans-serif; /* police moderne et stylée */
+  letter-spacing: 1px;          /* petit espacement entre les lettres */
+}
+
+
+
+.contact-note {
+  font-size: 0.95rem;
+  color: var(--sub);
+  text-align: center;
+  margin-top: 2rem;
+  line-height: 1.4;
+  font-style: italic;
 }
 
 /* --------------------------------- */
